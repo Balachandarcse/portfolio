@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Balachandar's Portfolio</title>
+  <!-- Link to Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f0f4f8, #ffffff);
+      color: #333;
+      overflow-x: hidden;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-theme {
+      background: linear-gradient(to right, #1a1a1a, #333);
+      color: white;
+    }
+
+    header {
+      background-color: transparent;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav ul li a:hover {
+      color: #007bff;
+    }
+
+    .dark-theme nav ul li a {
+      color: white;
+    }
+
+    .dark-theme nav ul li a:hover {
+      color: #80dfff;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 90vh;
+      padding: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      max-width: 1200px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .image img {
+      width: 300px;
+      border-radius: 50px;
+      margin-left: 0;
+      margin-right: 50px;
+    }
+
+    .intro h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      color: #333;
+      animation: slideInLeft 1s ease-in-out;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      font-weight: 300;
+      color: #555;
+      animation: slideInRight 1.5s ease-in-out;
+    }
+
+    .intro p {
+      font-size: 1.25rem;
+      margin-top: 10px;
+      color: #444;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .dark-theme .intro h1, 
+    .dark-theme .intro h2, 
+    .dark-theme .intro p {
+      color: white;
+    }
+
+    .tech-icons {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    .tech-icons img {
+      width: 50px;
+      margin-right: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 25px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      animation: bounceIn 1.5s ease-in-out;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .dark-theme .btn {
+      background-color: #80dfff;
+      color: #333;
+    }
+
+    .dark-theme .btn:hover {
+      background-color: #66ccff;
+    }
+
+    /* Background Icons with Animations */
+    .floating-icon {
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.4;
+    }
+
+    .icon-1 {
+      top: 10%;
+      left: 10%;
+      font-size: 8rem;
+      animation-delay: 0s;
+    }
+
+    .icon-2 {
+      top: 30%;
+      right: 15%;
+      font-size: 7rem;
+      animation-delay: 2s;
+    }
+
+    .icon-3 {
+      bottom: 20%;
+      left: 20%;
+      font-size: 9rem;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+
+    /* Text Animations */
+    @keyframes slideInLeft {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Social and Theme Icons */
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      margin: 0 15px;
+      font-size: 2rem;
+      color: #333;
+    }
+
+    .social-icons a:hover {
+      color: #007bff;
+    }
+
+    .dark-theme .social-icons a {
+      color: white;
+    }
+
+    .dark-theme .social-icons a:hover {
+      color: #80dfff;
+    }
+
+    .theme-switcher {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .dark-theme .theme-switcher {
+      color: white;
+    }
+
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Contact Me</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="theme-switcher" id="themeSwitcher">
+    <i class="fas fa-sun" id="themeIcon"></i>
+  </div>
+
+  <main>
+    <section class="hero">
+      <i class="fab fa-react floating-icon icon-1"></i>
+      <i class="fab fa-node floating-icon icon-2"></i>
+      <i class="fab fa-js-square floating-icon icon-3"></i>
+
+      <div class="content">
+        <div class="image">
+          <img src="img1.png" alt="Balachandar" />
+        </div>
+        <div class="intro">
+          <h1>Hi there!</h1>
+          <h2>Welcome to My Portfolio</h2>
+          <p>I’m <strong>Balachandar</strong>, an Aspiring <strong>Full-Stack Developer</strong> passionate about building dynamic web and mobile applications.</p>
+          <a href="#projects" class="btn">View My Work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="social-icons">
+    <a href="https://github.com/your-github-profile" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+  <script>
+    const themeSwitcher = document.getElementById('themeSwitcher');
+    const themeIcon = document.getElementById('themeIcon');
+    let isDarkMode = false;
+
+    themeSwitcher.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      isDarkMode = !isDarkMode;
+      themeIcon.classList = isDarkMode ? 'fas fa-moon' : 'fas fa-sun';
+    });
+  </script>
+</body>
+</html>
