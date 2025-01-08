@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Balachandar's Portfolio</title>
-  <!-- Link to Font Awesome -->
+  <title>Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    /* General Styles */
     * {
       margin: 0;
       padding: 0;
@@ -61,66 +59,59 @@
       color: #80dfff;
     }
 
-    /* Hero Section */
     .hero {
       display: flex;
-      justify-content: center;
       align-items: center;
-      height: 90vh;
+      height: 100vh;
       padding: 50px;
-      position: relative;
-      overflow: hidden;
     }
 
     .content {
       display: flex;
       align-items: center;
-      max-width: 1200px;
-      animation: fadeIn 2s ease-in-out;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .image {
+      flex: 0 0 30%;
+      display: flex;
+      justify-content: center;
     }
 
     .image img {
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       border-radius: 50px;
-      margin-left: 0;
-      margin-right: 50px;
+    }
+
+    .intro {
+      flex: 1;
+      padding-left: 50px;
     }
 
     .intro h1 {
       font-size: 3rem;
       font-weight: 500;
       color: #333;
-      animation: slideInLeft 1s ease-in-out;
     }
 
     .intro h2 {
       font-size: 2rem;
       font-weight: 300;
       color: #555;
-      animation: slideInRight 1.5s ease-in-out;
     }
 
     .intro p {
       font-size: 1.25rem;
       margin-top: 10px;
       color: #444;
-      animation: fadeIn 2s ease-in-out;
     }
 
     .dark-theme .intro h1, 
     .dark-theme .intro h2, 
     .dark-theme .intro p {
       color: white;
-    }
-
-    .tech-icons {
-      display: flex;
-      margin-top: 20px;
-    }
-
-    .tech-icons img {
-      width: 50px;
-      margin-right: 15px;
     }
 
     .btn {
@@ -132,7 +123,6 @@
       text-decoration: none;
       border-radius: 5px;
       font-size: 1rem;
-      animation: bounceIn 1.5s ease-in-out;
     }
 
     .btn:hover {
@@ -148,88 +138,6 @@
       background-color: #66ccff;
     }
 
-    /* Background Icons with Animations */
-    .floating-icon {
-      position: absolute;
-      animation: float 6s ease-in-out infinite;
-      opacity: 0.4;
-    }
-
-    .icon-1 {
-      top: 10%;
-      left: 10%;
-      font-size: 8rem;
-      animation-delay: 0s;
-    }
-
-    .icon-2 {
-      top: 30%;
-      right: 15%;
-      font-size: 7rem;
-      animation-delay: 2s;
-    }
-
-    .icon-3 {
-      bottom: 20%;
-      left: 20%;
-      font-size: 9rem;
-      animation-delay: 1s;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-      100% {
-        transform: translateY(0px);
-      }
-    }
-
-    /* Text Animations */
-    @keyframes slideInLeft {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInRight {
-      0% {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @keyframes bounceIn {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-    }
-
-    /* Social and Theme Icons */
     .social-icons {
       display: flex;
       justify-content: center;
@@ -267,9 +175,23 @@
       color: white;
     }
 
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+      }
+
+      .image {
+        margin-bottom: 30px;
+        flex: 0 0 50%;
+      }
+
+      .intro {
+        padding: 0;
+      }
+    }
   </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -290,16 +212,12 @@
 
   <main>
     <section class="hero">
-      <i class="fab fa-react floating-icon icon-1"></i>
-      <i class="fab fa-node floating-icon icon-2"></i>
-      <i class="fab fa-js-square floating-icon icon-3"></i>
-
       <div class="content">
         <div class="image">
-          <img src="img1.png" alt="Balachandar" />
+          <img src="img3.png" alt="Balachandar" />
         </div>
         <div class="intro">
-          <h1>Hi there!</h1>
+          <h1>Hi!</h1>
           <h2>Welcome to My Portfolio</h2>
           <p>I’m <strong>Balachandar</strong>, an Aspiring <strong>Full-Stack Developer</strong> passionate about building dynamic web and mobile applications.</p>
           <a href="#projects" class="btn">View My Work</a>
