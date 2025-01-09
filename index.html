@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  
   <style>
     * {
       margin: 0;
@@ -15,15 +14,9 @@
     }
 
     body {
-      background: linear-gradient(to right, #f0f4f8, #ffffff);
-      color: #333;
-      overflow-x: hidden;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    .dark-theme {
       background: linear-gradient(to right, #1a1a1a, #333);
       color: white;
+      overflow-x: hidden;
     }
 
     header {
@@ -43,27 +36,20 @@
 
     nav ul li a {
       text-decoration: none;
-      color: #333;
+      color: white;
       font-weight: 500;
     }
 
     nav ul li a:hover {
-      color: #007bff;
-    }
-
-    .dark-theme nav ul li a {
-      color: white;
-    }
-
-    .dark-theme nav ul li a:hover {
       color: #80dfff;
     }
 
     .hero {
       display: flex;
       align-items: center;
-      height: 100vh;
-      padding: 50px;
+      height: 100%;
+      padding: 10px 20px 0px 0px;
+      
     }
 
     .content {
@@ -74,15 +60,16 @@
     }
 
     .image {
-      flex: 0 0 30%;
-      display: flex;
-      justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     }
 
     .image img {
       width: 100%;
-      max-width: 300px;
-      border-radius: 50px;
+      height: 100%;
+      max-width: 450px;
     }
 
     .intro {
@@ -93,102 +80,52 @@
     .intro h1 {
       font-size: 3rem;
       font-weight: 500;
-      color: #333;
     }
 
     .intro h2 {
       font-size: 2rem;
       font-weight: 300;
-      color: #555;
     }
 
     .intro p {
       font-size: 1.25rem;
       margin-top: 10px;
-      color: #444;
-    }
-
-    .dark-theme .intro h1, 
-    .dark-theme .intro h2, 
-    .dark-theme .intro p {
-      color: white;
     }
 
     .btn {
       display: inline-block;
       margin-top: 30px;
       padding: 10px 25px;
-      background-color: #007bff;
-      color: white;
+      background-color: #80dfff;
+      color: #333;
       text-decoration: none;
       border-radius: 5px;
       font-size: 1rem;
     }
 
     .btn:hover {
-      background-color: #0056b3;
-    }
-
-    .dark-theme .btn {
-      background-color: #80dfff;
-      color: #333;
-    }
-
-    .dark-theme .btn:hover {
       background-color: #66ccff;
     }
 
     .social-icons {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .social-icons a {
-      margin: 0 15px;
-      font-size: 2rem;
-      color: #333;
-    }
-
-    .social-icons a:hover {
-      color: #007bff;
-    }
-
-    .dark-theme .social-icons a {
-      color: white;
-    }
-
-    .dark-theme .social-icons a:hover {
-      color: #80dfff;
-    }
-
-    .theme-switcher {
       position: absolute;
       top: 20px;
       right: 20px;
-      cursor: pointer;
-      font-size: 15px;
-      color: #333;
+      display: flex;
     }
 
-    .dark-theme .theme-switcher {
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 1.5rem;
       color: white;
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
-      }
-
-      .image {
-        margin-bottom: 30px;
-        flex: 0 0 50%;
-      }
-
-      .intro {
-        padding: 0;
+    .social-icons a:hover {
+      color: #80dfff;
+    }
+    @media screen and (max-width:620px) {
+      .image{
+        display: none;
       }
     }
   </style>
@@ -206,8 +143,13 @@
     </nav>
   </header>
 
-  <div class="theme-switcher" id="themeSwitcher">
-    <i class="fas fa-sun" id="themeIcon"></i>
+  <div class="social-icons">
+    <a href="https://github.com/your-github-profile" target="_blank">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
+      <i class="fab fa-linkedin"></i>
+    </a>
   </div>
 
   <main>
@@ -225,26 +167,5 @@
       </div>
     </section>
   </main>
-
-  <div class="social-icons">
-    <a href="https://github.com/your-github-profile" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
-
-  <script>
-    const themeSwitcher = document.getElementById('themeSwitcher');
-    const themeIcon = document.getElementById('themeIcon');
-    let isDarkMode = false;
-
-    themeSwitcher.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      isDarkMode = !isDarkMode;
-      themeIcon.classList = isDarkMode ? 'fas fa-moon' : 'fas fa-sun';
-    });
-  </script>
 </body>
 </html>
