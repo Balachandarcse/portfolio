@@ -21,60 +21,100 @@
 
     header {
       background-color: transparent;
-      padding: 20px;
+      padding: 10px 20px;
+      position: relative;
     }
 
-    nav ul {
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      transition: transform 0.3s ease;
+    }
+
+    .menu {
+      display: flex;
+    }
+
+    .menu ul {
       list-style-type: none;
       display: flex;
-      justify-content: center;
+      animation: fadeIn 1s ease-in-out;
     }
 
-    nav ul li {
+    .menu ul li {
       margin: 0 15px;
     }
 
-    nav ul li a {
+    .menu ul li a {
       text-decoration: none;
       color: white;
       font-weight: 500;
+      transition: color 0.3s ease-in-out;
     }
 
-    nav ul li a:hover {
+    .menu ul li a:hover {
       color: #80dfff;
+    }
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: white;
+      position: absolute;
+      left: 20px;
+      top: 15px;
     }
 
     .hero {
       display: flex;
       align-items: center;
-      height: 100%;
-      padding: 10px 20px 0px 0px;
-      
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      animation: fadeInUp 1.5s ease-in-out;
     }
 
     .content {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       width: 100%;
+      max-width: 1200px;
     }
 
     .image {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: float 3s ease-in-out infinite;
     }
 
     .image img {
       width: 100%;
-      height: 100%;
-      max-width: 450px;
+      max-width: 350px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .image img:hover {
+      transform: scale(1.05);
     }
 
     .intro {
-      flex: 1;
-      padding-left: 50px;
+      flex: 2;
+      padding-left: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in-out forwards;
     }
 
     .intro h1 {
@@ -101,62 +141,217 @@
       text-decoration: none;
       border-radius: 5px;
       font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
     }
 
     .btn:hover {
       background-color: #66ccff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .social-icons {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      display: flex;
-    }
-
-    .social-icons a {
-      margin: 0 10px;
-      font-size: 1.5rem;
-      color: white;
-    }
-
-    .social-icons a:hover {
-      color: #80dfff;
-    }
-    @media screen and (max-width:620px) {
-      .image{
+    @media screen and (max-width: 768px) {
+      .menu {
         display: none;
+        position: absolute;
+        top: 60px;
+        left: 20px;
+        background-color: #333;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        flex-direction: column;
+      }
+
+      .menu ul {
+        flex-direction: column;
+      }
+
+      .menu ul li {
+        margin: 10px 0;
+      }
+
+      .menu ul li a {
+        font-size: 1rem;
+      }
+
+      .menu.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      .logo {
+        position: absolute;
+        right: 20px;
+        top: 15px;
       }
     }
+
+    @media screen and (max-width: 450px) {
+      .content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .image {
+        order: 2;
+        margin-top: 20px;
+      }
+
+      .image img {
+        max-width: 300px;
+        border-radius: 30px;
+      }
+
+      .intro {
+        padding-left: 0;
+      }
+
+      .intro h1 {
+        font-size: 2.5rem;
+      }
+
+      .intro h2 {
+        font-size: 1.75rem;
+      }
+
+      .intro p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .projects {
+  padding: 50px 20px;
+  background-color: #222;
+  color: white;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #80dfff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.project-card {
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.project-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #80dfff;
+}
+
+.project-info p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.project-info .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #80dfff;
+  color: #333;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-info .btn:hover {
+  background-color: #66ccff;
+  transform: translateY(-3px);
+}
+
+
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Me</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Skills</a></li>
-        <li><a href="#">Contact Me</a></li>
-      </ul>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="logo">My Portfolio</div>
+      <div class="menu">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Skills</a></li>
+          <li><a href="#">Contact Me</a></li>
+          <li><a href="https://github.com/your-github-profile" target="_blank">
+            <i class="fab fa-github"></i>
+          </a></li>
+          <li><a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a></li>
+        </ul>
+      </div>
     </nav>
   </header>
-
-  <div class="social-icons">
-    <a href="https://github.com/your-github-profile" target="_blank">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank">
-      <i class="fab fa-linkedin"></i>
-    </a>
-  </div>
 
   <main>
     <section class="hero">
       <div class="content">
         <div class="image">
-          <img src="img3.png" alt="Balachandar" />
+          <img src="img3.png" alt="Balachandar">
         </div>
         <div class="intro">
           <h1>Hi!</h1>
@@ -166,6 +361,76 @@
         </div>
       </div>
     </section>
+      <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <h2 class="section-title">My Projects</h2>
+    <div class="project-grid">
+      <!-- Project Card 1 -->
+      <div class="project-card">
+        <img src="project1.jpg" alt="Project 1">
+        <div class="project-info">
+          <h3>Project 1</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?.</p>
+          <a href="https://github.com/your-github-project-1" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <!-- Project Card 2 -->
+      <div class="project-card">
+        <img src="project2.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
+          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="project3.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
+          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="project4.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
+          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="project5.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, facere!</p>
+          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="project6.jpg" alt="Project 2">
+        <div class="project-info">
+          <h3>Project 2</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, officiis!</p>
+          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
   </main>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const menu = document.querySelector('.menu');
+
+    hamburger.addEventListener('click', () => {
+      menu.classList.toggle('show');
+    });
+  </script>
 </body>
 </html>
