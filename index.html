@@ -5,322 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: linear-gradient(to right, #1a1a1a, #333);
-      color: white;
-      overflow-x: hidden;
-    }
-
-    header {
-      background-color: transparent;
-      padding: 10px 20px;
-      position: relative;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: white;
-      transition: transform 0.3s ease;
-    }
-
-    .menu {
-      display: flex;
-    }
-
-    .menu ul {
-      list-style-type: none;
-      display: flex;
-      animation: fadeIn 1s ease-in-out;
-    }
-
-    .menu ul li {
-      margin: 0 15px;
-    }
-
-    .menu ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-      transition: color 0.3s ease-in-out;
-    }
-
-    .menu ul li a:hover {
-      color: #80dfff;
-    }
-
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: white;
-      position: absolute;
-      left: 20px;
-      top: 15px;
-    }
-
-    .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      padding: 20px;
-      animation: fadeInUp 1.5s ease-in-out;
-    }
-
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .image img {
-      width: 100%;
-      max-width: 350px;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .image img:hover {
-      transform: scale(1.05);
-    }
-
-    .intro {
-      flex: 2;
-      padding-left: 30px;
-      opacity: 0;
-      animation: fadeInUp 1s ease-in-out forwards;
-    }
-
-    .intro h1 {
-      font-size: 3rem;
-      font-weight: 500;
-    }
-
-    .intro h2 {
-      font-size: 2rem;
-      font-weight: 300;
-    }
-
-    .intro p {
-      font-size: 1.25rem;
-      margin-top: 10px;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 10px 25px;
-      background-color: #80dfff;
-      color: #333;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      background-color: #66ccff;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    @media screen and (max-width: 768px) {
-      .menu {
-        display: none;
-        position: absolute;
-        top: 60px;
-        left: 20px;
-        background-color: #333;
-        padding: 15px;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-        flex-direction: column;
-      }
-
-      .menu ul {
-        flex-direction: column;
-      }
-
-      .menu ul li {
-        margin: 10px 0;
-      }
-
-      .menu ul li a {
-        font-size: 1rem;
-      }
-
-      .menu.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
-
-      .logo {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-      }
-    }
-
-    @media screen and (max-width: 450px) {
-      .content {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .image {
-        order: 2;
-        margin-top: 20px;
-      }
-
-      .image img {
-        max-width: 300px;
-        border-radius: 30px;
-      }
-
-      .intro {
-        padding-left: 0;
-      }
-
-      .intro h1 {
-        font-size: 2.5rem;
-      }
-
-      .intro h2 {
-        font-size: 1.75rem;
-      }
-
-      .intro p {
-        font-size: 1rem;
-      }
-    }
-
-    /* Keyframe Animations */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .projects {
-  padding: 50px 20px;
-  background-color: #222;
-  color: white;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #80dfff;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  animation: fadeInUp 1.5s ease-in-out;
-}
-
-.project-card {
-  background-color: #333;
-  border-radius: 10px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 350px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
-}
-
-.project-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.project-info {
-  padding: 15px;
-  text-align: left;
-}
-
-.project-info h3 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #80dfff;
-}
-
-.project-info p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-}
-
-.project-info .btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #80dfff;
-  color: #333;
-  text-decoration: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.project-info .btn:hover {
-  background-color: #66ccff;
-  transform: translateY(-3px);
-}
-
-
-  </style>
+<link rel="stylesheet" href="index.css">
 </head>
 <body>
   <header>
@@ -328,13 +13,13 @@
       <div class="hamburger">
         <i class="fas fa-bars"></i>
       </div>
-      <div class="logo">My Portfolio</div>
+      <div class="logo">Portfolio</div>
       <div class="menu">
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a href="#hero">Home</a></li>
           <li><a href="#">About Me</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#">Contact Me</a></li>
           <li><a href="https://github.com/your-github-profile" target="_blank">
             <i class="fab fa-github"></i>
@@ -348,10 +33,10 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="content">
         <div class="image">
-          <img src="img3.png" alt="Balachandar">
+          <img src="assets/img3.png" alt="Balachandar">
         </div>
         <div class="intro">
           <h1>Hi!</h1>
@@ -361,65 +46,153 @@
         </div>
       </div>
     </section>
+
+
+    <section id="skills" class="skills">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-container">
+        <!-- Programming Languages -->
+        <div class="skill-group">
+          <h3>Programming Languages</h3>
+          <div class="skill-icons">
+            <div class="skill-item">
+              <img src="assets/C.webp" alt="C">
+              <p>C<br>(Intermediate)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/cpp.webp" alt="C++">
+              <p>C++<br>(Intermediate)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/python.webp" alt="Python">
+              <p>Python<br>(Basics)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/java.webp" alt="Java">
+              <p>Java<br>(Advanced)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/react.png" alt="HTML">
+              <p>React<br>(Intermediate)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/js.webp" alt="JavaScript">
+              <p>JavaScript<br>(Intermediate)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/dart.png" alt="Dart">
+              <p>Dart<br>(Advanced)</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tools and Technologies -->
+        <div class="skill-group">
+          <h3>Tools and Technologies</h3>
+          <div class="skill-icons">
+            <div class="skill-item">
+              <img src="assets/figma.png" alt="Figma">
+              <p>Figma</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/flutter.png" alt="Flutter">
+              <p>Flutter</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/vsCode.webp" alt="VS Code">
+              <p>VS Code</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/canva.webp" alt="Canva">
+              <p>Canva</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/git.webp" alt="Git">
+              <p>Git</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/github.webp" alt="GitHub">
+              <p>GitHub</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/Android_Studio.webp" alt="Android Studio">
+              <p>Android Studio</p>
+            </div>
+          </div>
+        </div>
+        <!-- Databases -->
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="skill-icons">
+            <div class="skill-item">
+              <img src="assets/SQL.webp" alt="MySQL">
+              <p>MySQL<br>(Advanced)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/mongodb.jpeg" alt="MongoDB">
+              <p>MongoDB<br>(Intermediate)</p>
+            </div>
+            <div class="skill-item">
+              <img src="assets/firebase.png" alt="Firebase">
+              <p>Firebase<br>(Intermediate)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+
       <!-- Projects Section -->
   <section id="projects" class="projects">
-    <h2 class="section-title">My Projects</h2>
+    <h2 class="section-title">Projects</h2>
     <div class="project-grid">
       <!-- Project Card 1 -->
       <div class="project-card">
-        <img src="project1.jpg" alt="Project 1">
+        <img src="assets/BMI.jpg" alt="Project BMI calc">
         <div class="project-info">
-          <h3>Project 1</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?.</p>
-          <a href="https://github.com/your-github-project-1" target="_blank" class="btn">View on GitHub</a>
+          <h3>BMI Calculator(flutter)</h3>
+          <p>Developed a sleek and intuitive BMI Calculator app using Flutter,
+             allowing users to effortlessly calculate their Body Mass Index by simply inputting their weight and height.
+              The app delivers instant results and categorizes BMI into health ranges like underweight, normal weight and overweight.
+               With a responsive design and smooth performance across both Android and iOS devices, 
+            this app showcases my ability to build efficient and user-friendly mobile solutions.</p>
+          <a href="https://github.com/Balachandarcse/BMI_Calc" target="_blank" class="btn">View on GitHub</a>
         </div>
       </div>
 
       <!-- Project Card 2 -->
       <div class="project-card">
-        <img src="project2.jpg" alt="Project 2">
+        <img src="assets/climate_checker.jpeg" alt="Project 2">
         <div class="project-info">
-          <h3>Project 2</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
-          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+          <h3>Climate Checker(flutter)</h3>
+        <p>Built a powerful Climate Checker app using Flutter, integrated with the OpenWeather API,
+           to provide real-time weather updates to users.
+           The app allows users to check current weather conditions and weather descriptions, for any location.
+            With a clean and intuitive UI, users can easily search for cities and instantly view weather information.
+             This project demonstrates my proficiency in integrating APIs and building responsive,
+              data-driven mobile applications.</p>
+          <a href="https://github.com/Balachandarcse/Climate_checker" target="_blank" class="btn">View on GitHub</a>
         </div>
       </div>
 
       <div class="project-card">
-        <img src="project3.jpg" alt="Project 2">
+        <img src="assets/healthInsurance.png" alt="Project 3">
         <div class="project-info">
-          <h3>Project 2</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
-          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
+          <h3>Health Insurance Management System (Java Console Application)</h3>
+          <p>Developed a Health Insurance Management System using Java and MySQL,
+             designed to efficiently manage insurance policies, claims, and users.
+              The system includes two types of users: Admin and User.
+               Admins can create and manage policies, add users, and view all policies.
+                Users can log in, view available policies, register for them, and update their personal details.
+                 The project integrates a MySQL database to store and retrieve user and policy information,
+                  providing a seamless experience for managing insurance policies.
+                   This system demonstrates my skills in object-oriented programming, database integration, and user authentication.
+          </p>
+          <a href="https://github.com/Balachandarcse/HealthIsurance-management" target="_blank" class="btn">View on GitHub</a>
         </div>
       </div>
 
-      <div class="project-card">
-        <img src="project4.jpg" alt="Project 2">
-        <div class="project-info">
-          <h3>Project 2</h3>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, culpa?</p>
-          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="project5.jpg" alt="Project 2">
-        <div class="project-info">
-          <h3>Project 2</h3>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint, facere!</p>
-          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <img src="project6.jpg" alt="Project 2">
-        <div class="project-info">
-          <h3>Project 2</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, officiis!</p>
-          <a href="https://github.com/your-github-project-2" target="_blank" class="btn">View on GitHub</a>
-        </div>
-      </div>
     </div>
   </section>
   </main>
@@ -431,6 +204,30 @@
     hamburger.addEventListener('click', () => {
       menu.classList.toggle('show');
     });
+
+
+    const skillBars = document.querySelectorAll('.skill-level');
+const options = {
+  threshold: 0.5,
+};
+
+const animateSkills = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.width = entry.target.dataset.level + '%';
+    }
+  });
+};
+
+const observer = new IntersectionObserver(animateSkills, options);
+
+skillBars.forEach(bar => {
+  const level = bar.style.width;
+  bar.style.width = '0'; // Initially set width to 0 for animation
+  bar.dataset.level = level;
+  observer.observe(bar);
+});
+
   </script>
 </body>
 </html>
