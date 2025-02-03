@@ -31,10 +31,6 @@ scroll-behavior: smooth;
     align-items: center;
   }
 
-  header{
-  
-  }
-
   .logo {
     font-size: 1.5rem;
     font-weight: bold;
@@ -102,6 +98,7 @@ scroll-behavior: smooth;
     animation: float 3s ease-in-out infinite;
   }
 
+  
   .image img {
     width: 100%;
     max-width: 350px;
